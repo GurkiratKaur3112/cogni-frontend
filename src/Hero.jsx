@@ -14,7 +14,7 @@ const bars = [
 ];
 
 
-export default function HeroSection() {
+export default function HeroSection({url, changeUrl, startAnalysis}) {
     const allBars = [...bars, ...bars.slice().reverse()];
 
     return (
@@ -200,7 +200,7 @@ export default function HeroSection() {
             sm:mt-10
         "
                 >
-                    <ContextAnalyzer />
+                    <ContextAnalyzer url={url} changeUrl={changeUrl} startAnalysis={startAnalysis}/>
                 </div>
 
 

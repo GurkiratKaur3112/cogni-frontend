@@ -133,7 +133,7 @@ export default function AnalysisPage({ youtubeUrl, onBack }) {
             <div className="analysis-bg"><div className="analysis-glow one" /><div className="analysis-glow two" /><div className="analysis-grid" /></div>
 
             <header className="analysis-nav">
-                <button className="back-button" onClick={onBack}><ArrowLeft size={17} /><span>Back</span></button>
+                <button onSubmit={onBack} className="back-button" onClick={onBack}><ArrowLeft size={17} /><span>Back</span></button>
                 <div className="analysis-brand"><i />Context<span>Ads</span></div>
                 <div className={`progress-widget ${progressOpen ? "open" : ""}`} onMouseEnter={() => setProgressOpen(true)} onMouseLeave={() => setProgressOpen(false)}>
                     <button className="progress-trigger" onClick={() => setProgressOpen((v) => !v)}>

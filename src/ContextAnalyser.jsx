@@ -172,7 +172,7 @@ import {
     Zap,
 } from "lucide-react";
 
-const ContextAnalyzer = () => {
+const ContextAnalyzer = ({url, changeUrl, startAnalysis}) => {
     const handleAnalyze = (e) => {
         e.preventDefault();
         console.log("Analyzing video...");
@@ -273,7 +273,7 @@ const ContextAnalyzer = () => {
                 {/* =================================================
                     FORM
                 ================================================= */}
-                <form onSubmit={handleAnalyze} className="relative z-10">
+                <form onSubmit={startAnalysis} className="relative z-10">
 
                     <div className="flex flex-col gap-2.5 sm:flex-row">
 
@@ -339,6 +339,8 @@ const ContextAnalyzer = () => {
                             <input
                                 type="url"
                                 required
+                                value={url}
+                                onChange={changeUrl}
                                 placeholder="Paste a YouTube video URL"
                                 aria-label="YouTube video URL"
                                 className="

@@ -15,6 +15,14 @@ const Home = () => {
 
     const onBack = () => setPage('home')
 
+    const onChange = (e) => {
+        setUrl(e.target.value)
+    }
+
+    const startAnalysis = () => {
+        setPage('analysis')
+    }
+
     
     return (
         <>
@@ -22,7 +30,7 @@ const Home = () => {
                 <div className='overflow-hidden'>
                     {/* <BurningTopGlow/> */}
                     {/* <BurningGlowDemo/> */}
-                    <HeroSection />
+                    <HeroSection url={url} changeUrl={onChange} startAnalysis={startAnalysis}/>
                     <LensDemo />
                     <GiftCardFanCircle />
                     <ContactSection />
@@ -30,7 +38,7 @@ const Home = () => {
                     {/* <div className='min-h-screen'></div> */}
                 </div>
                 :
-                <AnalysisPage onBack={onBack} />
+                <AnalysisPage youtubeUrl={url} onBack={onBack} />
             }
         </>
     )
