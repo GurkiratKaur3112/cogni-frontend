@@ -40,7 +40,7 @@ export default function LensDemo() {
     const [hovering, setHovering] = useState(false);
 
     return (
-        <section className="relative overflow-hidden py-44">
+        <section className="relative overflow-hidden pt-44">
 
             {/* ============================================
                 SECTION BACKGROUND GLOW
