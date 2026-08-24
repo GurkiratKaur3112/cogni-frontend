@@ -7,6 +7,8 @@ import LensDemo from './LensCard'
 import ContactSection from './Contact'
 import Footer from './Footer'
 import AnalysisPage from './AnalysisPage'
+import HowItWorks from './HowItWorks'
+
 // import GiftCardShowcase from './MetallicCard'
 
 const Home = () => {
@@ -31,6 +33,7 @@ const Home = () => {
                     {/* <BurningTopGlow/> */}
                     {/* <BurningGlowDemo/> */}
                     <HeroSection url={url} changeUrl={onChange} startAnalysis={startAnalysis}/>
+                    <HowItWorks/>
                     <LensDemo />
                     <GiftCardFanCircle />
                     <ContactSection />

@@ -48,6 +48,7 @@ export default function AnalysisPage({ youtubeUrl, onBack }) {
                 const response = await fetch(`${API_URL}/api/analyze/${id}`);
                 if (!response.ok) throw new Error("Failed to get analysis status.");
                 const result = await response.json();
+                console.log(result)
                 const job = result.data;
                 setStatus(job.status);
                 setProgress(Math.min(100, Math.max(0, job.progress || 0)));
@@ -134,7 +135,7 @@ export default function AnalysisPage({ youtubeUrl, onBack }) {
 
             <header className="analysis-nav">
                 <button onSubmit={onBack} className="back-button" onClick={onBack}><ArrowLeft size={17} /><span>Back</span></button>
-                <div className="analysis-brand"><i />Context<span>Ads</span></div>
+                <div className="analysis-brand italic text-4xl">Context<span className="italic">Ads</span></div>
                 <div className={`progress-widget ${progressOpen ? "open" : ""}`} onMouseEnter={() => setProgressOpen(true)} onMouseLeave={() => setProgressOpen(false)}>
                     <button className="progress-trigger" onClick={() => setProgressOpen((v) => !v)}>
                         <span className="progress-ring" style={{ "--p": `${progress}%` }}><b>{Math.round(progress)}%</b></span>
@@ -176,7 +177,7 @@ export default function AnalysisPage({ youtubeUrl, onBack }) {
                         <aside className="ad-column">
                             <div className="ad-heading"><div><small>LIVE MATCH</small><strong>Contextual advertisement</strong></div>{ad && <b>{Math.round((Number(ad.score) || 0) * 100)}% match</b>}</div>
                             {ad ? <>
-                                <div className="ad-card"><div className="ad-orb" /><div className="ad-top"><span>SPONSORED</span><b><Clock3 size={12} /> {ad.timestamp_formatted}</b></div><div className="brand-mark">{initials(ad.ad?.brand)}</div><small>{ad.ad?.category || "Contextual recommendation"}</small><h2>{ad.ad?.brand}</h2><h3>{ad.ad?.title}</h3><p>{ad.ad?.description}</p><div className="matched"><span>Matched to</span><strong>{ad.scene || "current video context"}</strong></div><button className="ad-cta">Explore this ad <ArrowLeft size={14} style={{ transform: "rotate(135deg)" }} /></button></div>
+                                <div className="ad-card"><div className="ad-orb" /><div className="ad-top"><span>SPONSORED</span><b><Clock3 size={12} /> {ad.timestamp_formatted}</b></div><div className="brand-mark">{initials(ad.ad?.brand)}</div><small>{ad.ad?.category || "Contextual recommendation"}</small><h2>{ad.ad?.brand}</h2><h3>{ad.ad?.title}</h3><p>{ad.ad?.description}</p><div className="matched"><span>Matched to</span><strong>{ad.scene || "current video context"}</strong></div><button className="ad-cta flex items-center justify-between  ">Explore this ad <ArrowLeft size={16} style={{ transform: "rotate(135deg)" }} /></button></div>
                                 <div className="accordion"><button onClick={() => setWhyOpen(v => !v)}><span><Info size={16} /> Why this ad?</span>{whyOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}</button>{whyOpen && <div className="accordion-body"><p>ContextAds selected <b>{ad.ad?.brand}</b> because the current scene matches this advertisement semantically.</p><div className="reason-grid"><div><span>Scene</span><b>{ad.scene || "Detected context"}</b></div><div><span>Score</span><b>{Number(ad.score || 0).toFixed(3)}</b></div></div>{ad.search_query && <div className="query"><span>AI search context</span><p>{ad.search_query}</p></div>}</div>}</div>
                                 <div className="accordion"><button onClick={() => setDetailsOpen(v => !v)}><span><Target size={16} /> See ad details</span>{detailsOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}</button>{detailsOpen && <div className="accordion-body">{[["Brand", ad.ad?.brand], ["Title", ad.ad?.title], ["Category", ad.ad?.category], ["Timestamp", ad.timestamp_formatted]].map(([k, v]) => <div className="detail" key={k}><span>{k}</span><b>{v}</b></div>)}</div>}</div>
                             </> : <div className="empty-ad"><Target size={23} /><h3>Watching the context</h3><p>No contextual advertisement has been discovered for the current moment yet.</p></div>}

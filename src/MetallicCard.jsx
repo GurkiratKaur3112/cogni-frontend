@@ -635,7 +635,7 @@ export default function GiftCardSpinningRing() {
     }, [hovered]);
 
     return (
-        <div className="min-h-[150vh] h-[230vh] w-full flex flex-col items-center justify-center p-10">
+        <div className="min-h-[150vh] h-[230vh] w-full flex flex-col items-center justify-center px-10">
             <div className="mb-6 text-center">
                 <h1 className="text-white text-6xl italic font-semibold tracking-tight">Where Context Meets Commerce</h1>
                 <p className="text-white/40 text-xl mt-2">Turning meaningful content into meaningful brand connections</p>
