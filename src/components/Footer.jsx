@@ -21,7 +21,7 @@ export default function Footer() {
     };
 
     return (
-        <footer className="relative overflow-hidden bg-black text-white">
+        <footer className="relative bg-black text-white">
             {/* Purple architectural background — matches the hero */}
             <div className="pointer-events-none absolute inset-0">
                 <div className="absolute left-1/2 top-0 h-64 w-[55rem] -translate-x-1/2 rounded-full bg-[#4338ca]/25 blur-[120px]" />

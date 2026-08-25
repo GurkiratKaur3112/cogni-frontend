@@ -19,7 +19,7 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className="relative overflow-hidden bg-black py-24 text-white sm:py-32"
+            className="relative bg-black py-24 text-white sm:py-32"
         >
             {/* Ambient background */}
             <div className="pointer-events-none absolute inset-0">
